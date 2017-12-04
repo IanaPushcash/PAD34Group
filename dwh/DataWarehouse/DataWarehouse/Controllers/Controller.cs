@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DataWarehouse.Controllers
 {
-	class Controller
+	abstract class Controller
 	{
+		public abstract ActionResult Index();
 	}
 }

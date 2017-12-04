@@ -21,12 +21,12 @@ namespace DataWarehouse
 			{
 				if (pathSegments.Length != 0)
 					return Activator.CreateInstance("DataWarehouse.Controllers", pathSegments[0] + "Controller");
-				return new MainController();
+				return new HomeController();
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine(e);
-				return new MainController();
+				//Console.WriteLine(e);
+				return new HomeController();
 			}
 		}
 	}
