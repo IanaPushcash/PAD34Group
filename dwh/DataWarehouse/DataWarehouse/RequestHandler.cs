@@ -15,7 +15,8 @@ namespace DataWarehouse
 			var requestDataFormat = request.ContentType;
 
 			var controller = MethodInvoker.GetController(pathSegments);
-			var actionResult = ((HomeController) controller).Index();
+			var actionResult = MethodInvoker.Invoke(controller, requestMethod, requestDataFormat, request.QueryString, pathSegments);
+			//var actionResult = ((HomeController) controller).Index();
 			actionResult.ExecuteResult(context.Response);
 
 		}
