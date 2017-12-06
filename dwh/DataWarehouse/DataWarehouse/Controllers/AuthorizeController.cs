@@ -21,7 +21,7 @@ namespace DataWarehouse.Controllers
 					var x = db.Users.Where(u => u.Login == login &&
 					                            u.Password == CalculateMD5Hash(password + u.Created.ToString("yy-MM-dd"))).ToList();
 					if (x.Count == 1)
-						return new ObjectResult(new {idUser = x.First().Id});
+						return new ObjectResult(x);
 				}
 				return new SuccessResult(false);
 			}
@@ -31,7 +31,7 @@ namespace DataWarehouse.Controllers
 			}
 		}
 
-		[MethodType("PUT")]
+		[MethodType("POST")]
 		public ActionResult Register(User newUser)
 		{
 			try
@@ -44,7 +44,7 @@ namespace DataWarehouse.Controllers
 					db.SaveChanges();
 					var x = db.Users.First(u => u.Login == newUser.Login &&
 					                            u.Password == CalculateMD5Hash(newUser.Password + u.Created.ToString("yy-MM-dd")));
-					return new ObjectResult(new {idUser = x.Id});
+					return new ObjectResult(x);
 				}
 			}
 			catch (Exception e)

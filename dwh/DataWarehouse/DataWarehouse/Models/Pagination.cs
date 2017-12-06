@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataWarehouse.Models
 {
-	class SearchTrip:Pagination
+	class Pagination
 	{
-		public long? IdCityFrom { get; set; }
-		public long? IdCityTo { get; set; }
-		public DateTime? TripDate { get; set; }
+		public int PageNumber { get; set; }
+		public int RecPerPage { get; set; }
 	}
 }

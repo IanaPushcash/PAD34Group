@@ -57,6 +57,7 @@
     <Compile Include="Controllers\AuthorizeController.cs" />
     <Compile Include="Controllers\Controller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MyTripsController.cs" />
     <Compile Include="MethodInvoker.cs" />
     <Compile Include="Migrations\201712050815258_Iana.cs" />
     <Compile Include="Migrations\201712050815258_Iana.Designer.cs">
@@ -77,6 +78,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\DbContext.cs" />
+    <Compile Include="Models\SearchUserTrips.cs" />
+    <Compile Include="Models\Pagination.cs" />
     <Compile Include="Models\SearchTrip.cs" />
     <Compile Include="Models\SearchTripResult.cs" />
     <Compile Include="Models\Trip.cs" />
