@@ -77,6 +77,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\DbContext.cs" />
+    <Compile Include="Models\SearchTrip.cs" />
+    <Compile Include="Models\SearchTripResult.cs" />
     <Compile Include="Models\Trip.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />

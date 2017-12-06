@@ -23,7 +23,24 @@ namespace DataWarehouse.Controllers
 			return new ObjectResult(cities);
 		}
 
-		
+		[MethodType("GET")]
+		public ActionResult SearchTrip(SearchTrip searchTrip)
+		{
+			var result = new SearchTripResult();
+			using (var db = new DatabaseContext())
+			{
+				result.Trips = (from t in db.Trips
+					where (searchTrip.IdCityFrom == null || t.IdCityFrom == searchTrip.IdCityFrom) &&
+					      (searchTrip.IdCityTo == null || t.IdCityTo == searchTrip.IdCityTo) &&
+					      (searchTrip.TripDate != null
+						      ? t.StartTime.Date.Equals(((DateTime) searchTrip.TripDate).Date)
+						      : t.StartTime > DateTime.Now)
+					orderby t.StartTime
+					select t).Skip(searchTrip.PageNumber*searchTrip.RecPerPage).Take(searchTrip.RecPerPage).ToList();
+				result.CountTrips = result.Trips.Count;
+			}
+			return new ObjectResult(result);
+		}
 
 
 
