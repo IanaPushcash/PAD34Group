@@ -2,18 +2,36 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using DataWarehouse.Annotations;
+using DataWarehouse.Models;
 
 namespace DataWarehouse.Controllers
 {
 	class HomeController:Controller
 	{
-		[GET]
-		public override ActionResult Index()
+		[MethodType("GET")]
+		public ActionResult CityList()
 		{
-			return new HtmlPageResult(File.ReadAllText("Views/Home/Index.html"));
+			var cities = new List<City>();
+			using (var db = new DatabaseContext())
+			{
+				cities = db.Cities.ToList();
+			}
+			return new ObjectResult(cities);
 		}
+
+		
+
+
+
+
+
+
+
+
+		
 	}
 }

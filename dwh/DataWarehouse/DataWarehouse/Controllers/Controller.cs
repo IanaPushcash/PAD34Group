@@ -8,6 +8,6 @@ namespace DataWarehouse.Controllers
 {
 	abstract class Controller
 	{
-		public abstract ActionResult Index();
+		//public abstract ActionResult Index();
 	}
 }
