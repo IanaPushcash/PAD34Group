@@ -82,6 +82,7 @@ namespace DataWarehouse.Controllers
 				return new SuccessResult(false);
 			}
 		}
+
 		[MethodType("PUT")]
 		public ActionResult UpdateTrip(Trip trip)
 		{
@@ -106,5 +107,5 @@ namespace DataWarehouse.Controllers
 			}
 		}
 	}
-	}
 }
+
