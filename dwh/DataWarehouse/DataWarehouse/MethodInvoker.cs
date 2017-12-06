@@ -7,18 +7,24 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using DataWarehouse.Controllers;
+using DataWarehouse.Formatters;
 
 namespace DataWarehouse
 {
 	class MethodInvoker
 	{
-		//public static ActionResult Invoke()
-		//{
-		//	//var methods = controller.GetType()
-		//	//	.SelectMany(t => t.GetMethods())
-		//	//	.Where(m => m.GetCustomAttributes(typeof(MenuItemAttribute), false).Length > 0)
-		//	//	.ToArray();
-		//}
+		private Formatter ResponseFormatter;
+		private Formatter RequestFormatter;
+
+		public MethodInvoker(string[] acceptTypes, string requestContentType)
+		{
+			foreach (var acceptType in acceptTypes)
+			{
+				ResponseFormatter = FormatterFactory.Create(acceptType);
+				if (ResponseFormatter != null) break;
+			}
+			RequestFormatter = FormatterFactory.Create(requestContentType);
+		}
 
 		public static object GetController(string[] pathSegments)
 		{
