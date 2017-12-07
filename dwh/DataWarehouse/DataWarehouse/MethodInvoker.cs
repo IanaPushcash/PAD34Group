@@ -6,8 +6,10 @@ using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using DataWarehouse.Annotations;
 using DataWarehouse.Controllers;
 using DataWarehouse.Formatters;
+using DataWarehouse.Models;
 
 namespace DataWarehouse
 {
@@ -26,32 +28,52 @@ namespace DataWarehouse
 			RequestFormatter = FormatterFactory.Create(requestContentType);
 		}
 
-		public static object GetController(string[] pathSegments)
+		public object GetController(string[] pathSegments)
 		{
 			try
 			{
 				if (pathSegments.Length != 0)
-					return Activator.CreateInstance("DataWarehouse.Controllers", pathSegments[0] + "Controller");
-				return new HomeController();
+					return Assembly.GetExecutingAssembly().CreateInstance($"DataWarehouse.Controllers.{pathSegments[0]}Controller");
+					//return Activator.CreateInstance("DataWarehouse.Controllers", pathSegments[0] + "Controller");
+				return null;
 			}
 			catch (Exception e)
 			{
 				//Console.WriteLine(e);
-				return new HomeController();
+				return null;
 			}
 		}
 
-		public static ActionResult Invoke(object controller, string requestMethod, string requestDataFormat,
-			NameValueCollection requestQueryString, string[] pathSegments)
+		public ActionResult Invoke(object controller, string requestMethod, string requestDataFormat,
+			NameValueCollection requestQueryString, string[] pathSegments, string content)
 		{
-			MethodInfo method;
-			if (pathSegments.Length > 1)
-				method = controller.GetType().GetMethods()
-					.First(m => m.Name == pathSegments[2] &&
-					            m.GetCustomAttributes(Type.GetType($"DataWarehouse.Annotations.{requestMethod}"), false).Length > 0 &&
-					            m.GetCustomAttributes(Type.GetType($"DataWarehouse.Annotations.{requestDataFormat}"), false).Length > 0);
-			else method = controller.GetType().GetMethods().First(m => m.Name == "Index");
-			return (ActionResult)method.Invoke(controller, null);
+			try
+			{
+				if (pathSegments.Length < 2) return new ErrorResult("Method name doesn't exist", 400);
+				var methods = controller.GetType()
+					.GetMethods()
+					.Where(m => m.Name == pathSegments[1]).ToList();
+				if (methods.Count < 1) return new ErrorResult("Uncorrect method name", 400);
+				methods = methods.Where(m => m.GetCustomAttributes(typeof(MethodType), false).Any(a=>((MethodType)a).MType == requestMethod))
+					.ToList();
+				if (methods.Count != 1) return new ErrorResult("Uncorrect method", 400);
+				var method = methods.First();
+				var param = method.GetParameters().ToList().First();
+				User u = new User();
+				var x = RequestFormatter.ToObject<object>(content);
+				Type typeArgument = param.ParameterType;
+				Type template = typeof(Request);
+
+				Type genericType = template.MakeGenericType(typeArgument);
+
+				object instance = Activator.CreateInstance(genericType);
+
+				return (ActionResult) methods.First().Invoke(controller, null);
+			}
+			catch (Exception e)
+			{
+				return new ErrorResult("", 400);
+			}
 		}
 	}
 }

@@ -2,7 +2,6 @@ D:\4 year\PAD\Labs\lab3\ws\DataWarehouse\DataWarehouse\bin\Debug\DataWarehouse.e
 D:\4 year\PAD\Labs\lab3\dwh\DataWarehouse\DataWarehouse\bin\Debug\DataWarehouse.exe.config
 D:\4 year\PAD\Labs\lab3\dwh\DataWarehouse\DataWarehouse\bin\Debug\DataWarehouse.exe
 D:\4 year\PAD\Labs\lab3\dwh\DataWarehouse\DataWarehouse\bin\Debug\DataWarehouse.pdb
-D:\4 year\PAD\Labs\lab3\dwh\DataWarehouse\DataWarehouse\obj\Debug\DataWarehouse.csprojResolveAssemblyReference.cache
 D:\4 year\PAD\Labs\lab3\dwh\DataWarehouse\DataWarehouse\obj\Debug\DataWarehouse.exe
 D:\4 year\PAD\Labs\lab3\dwh\DataWarehouse\DataWarehouse\obj\Debug\DataWarehouse.pdb
 D:\4 year\PAD\Labs\lab3\dwh\DataWarehouse\DataWarehouse\bin\Debug\EntityFramework.dll
@@ -14,3 +13,6 @@ D:\4 year\PAD\Labs\lab3\dwh\DataWarehouse\DataWarehouse\obj\Debug\DataWarehouse.
 D:\4 year\PAD\Labs\lab3\dwh\DataWarehouse\DataWarehouse\obj\Debug\DataWarehouse.Migrations.changeUser.resources
 D:\4 year\PAD\Labs\lab3\dwh\DataWarehouse\DataWarehouse\obj\Debug\DataWarehouse.Migrations.changeUser2.resources
 D:\4 year\PAD\Labs\lab3\dwh\DataWarehouse\DataWarehouse\obj\Debug\DataWarehouse.Migrations.dbV2.resources
+D:\4 year\PAD\Labs\lab3\dwh\DataWarehouse\DataWarehouse\bin\Debug\Newtonsoft.Json.dll
+D:\4 year\PAD\Labs\lab3\dwh\DataWarehouse\DataWarehouse\bin\Debug\Newtonsoft.Json.xml
+D:\4 year\PAD\Labs\lab3\dwh\DataWarehouse\DataWarehouse\obj\Debug\DataWarehouse.csprojResolveAssemblyReference.cache
