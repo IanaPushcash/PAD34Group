@@ -8,8 +8,8 @@ namespace DataWarehouse.Models
 {
 	class SearchTrip:Pagination
 	{
-		public long? IdCityFrom { get; set; }
-		public long? IdCityTo { get; set; }
-		public DateTime? TripDate { get; set; }
+		public long IdCityFrom { get; set; }
+		public long IdCityTo { get; set; }
+		public DateTime TripDate { get; set; }
 	}
 }

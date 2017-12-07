@@ -3,6 +3,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 using DataWarehouse.Controllers;
+using DataWarehouse.Formatters;
 
 namespace DataWarehouse
 {

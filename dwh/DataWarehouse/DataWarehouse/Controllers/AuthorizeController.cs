@@ -12,14 +12,14 @@ namespace DataWarehouse.Controllers
 	class AuthorizeController
 	{
 		[MethodType("POST")]
-		public ActionResult Login(string login, string password)
+		public ActionResult Login(User user)
 		{
 			try
 			{
 				using (var db = new DatabaseContext())
 				{
-					var x = db.Users.Where(u => u.Login == login &&
-					                            u.Password == CalculateMD5Hash(password + u.Created.ToString("yy-MM-dd"))).ToList();
+					var x = db.Users.Where(u => u.Login == user.Login &&
+					                            u.Password == CalculateMD5Hash(user.Password + u.Created.ToString("yy-MM-dd"))).ToList();
 					if (x.Count == 1)
 						return new ObjectResult(x);
 				}
@@ -42,9 +42,7 @@ namespace DataWarehouse.Controllers
 					newUser.Password = CalculateMD5Hash(newUser.Password + newUser.Created.ToString("yy-MM-dd"));
 					db.Users.Add(newUser);
 					db.SaveChanges();
-					var x = db.Users.First(u => u.Login == newUser.Login &&
-					                            u.Password == CalculateMD5Hash(newUser.Password + u.Created.ToString("yy-MM-dd")));
-					return new ObjectResult(x);
+					return new ObjectResult(newUser);
 				}
 			}
 			catch (Exception e)

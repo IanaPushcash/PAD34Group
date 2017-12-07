@@ -59,21 +59,38 @@ namespace DataWarehouse
 				if (methods.Count != 1) return new ErrorResult("Uncorrect method", 400);
 				var method = methods.First();
 				var param = method.GetParameters().ToList().First();
-				User u = new User();
-				var x = RequestFormatter.ToObject<object>(content);
-				Type typeArgument = param.ParameterType;
-				Type template = typeof(Request);
+				var inst = Assembly.GetExecutingAssembly().CreateInstance(param.ParameterType + "");
+				if (content + "" != "")
+				{
+					dynamic x = RequestFormatter.ToObject<dynamic>(content);
+					foreach (var fieldInfo in inst.GetType().GetProperties())
+					{
+						fieldInfo.SetValue(inst, x[fieldInfo.Name]?.Value);
+					}
+				}
+				else
+				{
+					foreach (var fieldInfo in inst.GetType().GetProperties())
+					{
+						fieldInfo.SetValue(inst, Convert.ChangeType(requestQueryString[fieldInfo.Name], fieldInfo.PropertyType), null);
+					}
+				}
 
-				Type genericType = template.MakeGenericType(typeArgument);
+				//Type template = typeof(Request);
+				//var z = fff(param, User);
+				//Type genericType = template.MakeGenericType(typeArgument);
 
-				object instance = Activator.CreateInstance(genericType);
-
-				return (ActionResult) methods.First().Invoke(controller, null);
+				//object instance = Activator.CreateInstance(genericType);
+				var result = (ActionResult) methods.First().Invoke(controller, new[] {inst});
+				result.ResponseFormatter = ResponseFormatter;
+				return result;
 			}
 			catch (Exception e)
 			{
 				return new ErrorResult("", 400);
 			}
 		}
+
+		
 	}
 }

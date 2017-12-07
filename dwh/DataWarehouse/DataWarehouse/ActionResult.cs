@@ -6,15 +6,17 @@ using System.Net;
 using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
+using DataWarehouse.Formatters;
 
 namespace DataWarehouse
 {
-	public abstract class ActionResult
+	abstract class ActionResult
 	{
+		public Formatter ResponseFormatter { get; set; }
 		public abstract void ExecuteResult(HttpListenerResponse response);
 	}
 
-	public class HtmlPageResult : ActionResult
+	class HtmlPageResult : ActionResult
     {
         private string htmlCode { get; set; }
         public HtmlPageResult(string html)
@@ -33,7 +35,7 @@ namespace DataWarehouse
 		}
 	}
 
-	public class ObjectResult : ActionResult
+	class ObjectResult : ActionResult
 	{
 		private object obj { get; set; }
 
@@ -43,14 +45,14 @@ namespace DataWarehouse
 		}
 		public override void ExecuteResult(HttpListenerResponse response)
 		{
-		
-			//response.StatusCode = 200; // HttpStatusCode.OK;
-			//response.ContentType = "html";
-			//byte[] buffer = System.Text.Encoding.UTF8.GetBytes(htmlCode);
-			//response.ContentLength64 = buffer.Length;
-			//Stream output = response.OutputStream;
-			//output.Write(buffer, 0, buffer.Length);
-			//output.Close();
+
+			response.StatusCode = 200; // HttpStatusCode.OK;
+			response.ContentType = ResponseFormatter.FormatName;
+			byte[] buffer = System.Text.Encoding.UTF8.GetBytes(ResponseFormatter.ToFormat(obj));
+			response.ContentLength64 = buffer.Length;
+			Stream output = response.OutputStream;
+			output.Write(buffer, 0, buffer.Length);
+			output.Close();
 		}
 	}
 
@@ -65,7 +67,13 @@ namespace DataWarehouse
 
 		public override void ExecuteResult(HttpListenerResponse response)
 		{
-			throw new NotImplementedException();
+			response.StatusCode = 200; // HttpStatusCode.OK;
+			response.ContentType = ResponseFormatter.FormatName;
+			byte[] buffer = System.Text.Encoding.UTF8.GetBytes(ResponseFormatter.ToFormat(success));
+			response.ContentLength64 = buffer.Length;
+			Stream output = response.OutputStream;
+			output.Write(buffer, 0, buffer.Length);
+			output.Close();
 		}
 	}
 
@@ -82,7 +90,13 @@ namespace DataWarehouse
 
 		public override void ExecuteResult(HttpListenerResponse response)
 		{
-			throw new NotImplementedException();
+			response.StatusCode = errorCode; // HttpStatusCode.OK;
+			response.ContentType = ResponseFormatter.FormatName;
+			byte[] buffer = System.Text.Encoding.UTF8.GetBytes(ResponseFormatter.ToFormat(error));
+			response.ContentLength64 = buffer.Length;
+			Stream output = response.OutputStream;
+			output.Write(buffer, 0, buffer.Length);
+			output.Close();
 		}
 	}
 }
