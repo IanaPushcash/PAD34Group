@@ -32,9 +32,9 @@ namespace DataWarehouse.Controllers
 				result.Trips = (from t in db.Trips
 						where (searchTrip.IdCityFrom == null || t.IdCityFrom == searchTrip.IdCityFrom) &&
 						      (searchTrip.IdCityTo == null || t.IdCityTo == searchTrip.IdCityTo) &&
-						      (searchTrip.TripDate != null
-								  ? t.StartTime > searchTrip.TripDate.Date.AddDays(-1) && t.StartTime < searchTrip.TripDate.Date.AddDays(1)
-								  : t.StartTime > DateTime.Now) &&
+						    //  (searchTrip.TripDate != null
+								  //? t.StartTime > searchTrip.TripDate.Date.AddDays(-1) && t.StartTime < searchTrip.TripDate.Date.AddDays(1)
+								  //: t.StartTime > DateTime.Now) &&
 							  t.IsActive
 						orderby t.StartTime
 						select t).Skip(searchTrip.PageNumber * searchTrip.RecPerPage)

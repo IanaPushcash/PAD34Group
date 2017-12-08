@@ -33,7 +33,7 @@ namespace DataWarehouse
 			try
 			{
 				if (pathSegments.Length != 0)
-					return Assembly.GetExecutingAssembly().CreateInstance($"DataWarehouse.Controllers.{pathSegments[0]}Controller");
+					return Assembly.GetExecutingAssembly().CreateInstance($"DataWarehouse.Controllers.{pathSegments[0]}Controller", true);
 					//return Activator.CreateInstance("DataWarehouse.Controllers", pathSegments[0] + "Controller");
 				return null;
 			}
@@ -52,7 +52,7 @@ namespace DataWarehouse
 				if (pathSegments.Length < 2) return new ErrorResult("Method name doesn't exist", 400);
 				var methods = controller.GetType()
 					.GetMethods()
-					.Where(m => m.Name == pathSegments[1]).ToList();
+					.Where(m => m.Name.ToLower() == pathSegments[1].ToLower()).ToList();
 				if (methods.Count < 1) return new ErrorResult("Uncorrect method name", 400);
 				methods = methods.Where(m => m.GetCustomAttributes(typeof(MethodType), false).Any(a=>((MethodType)a).MType == requestMethod))
 					.ToList();

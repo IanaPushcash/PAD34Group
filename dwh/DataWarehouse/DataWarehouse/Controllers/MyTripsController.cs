@@ -8,7 +8,7 @@ using DataWarehouse.Models;
 
 namespace DataWarehouse.Controllers
 {
-	class MyTripsController
+	class MyTripsController:Controller
 	{
 		[MethodType("GET")]
 		public ActionResult GetMyTrips(SearchUserTrips userTrips)

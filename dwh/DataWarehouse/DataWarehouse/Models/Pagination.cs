@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataWarehouse.Models
 {
-	class Pagination
+	abstract class Pagination
 	{
 		public int PageNumber { get; set; }
 		public int RecPerPage { get; set; }

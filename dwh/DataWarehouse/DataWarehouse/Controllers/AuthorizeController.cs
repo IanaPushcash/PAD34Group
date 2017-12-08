@@ -9,7 +9,7 @@ using DataWarehouse.Models;
 
 namespace DataWarehouse.Controllers
 {
-	class AuthorizeController
+	class AuthorizeController:Controller
 	{
 		[MethodType("POST")]
 		public ActionResult Login(User user)

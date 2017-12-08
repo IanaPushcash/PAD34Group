@@ -7,6 +7,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using static DataWarehouse.RequestHandler;
 
 namespace DataWarehouse
 {
@@ -14,7 +15,7 @@ namespace DataWarehouse
 	{
 		
 		private int port { get; set; }
-		private string address { get; set; } = "127.0.0.1";
+		private string address { get; set; }
 
 		public WebListener(int port, string address)
 		{
@@ -61,7 +62,7 @@ namespace DataWarehouse
 				while (true)
 				{
 					HttpListenerContext context = await listener.GetContextAsync();
-					RequestHandler.Process(context);
+					Task.Run(()=> Process(context));
 					//HttpListenerRequest request = context.Request;
 					//HttpListenerResponse response = context.Response;
 

@@ -11,6 +11,7 @@ namespace DataWarehouse
 	{
 		public static void Process(HttpListenerContext context)
 		{
+			Console.WriteLine(DateTime.Now.ToString("hh:mm:ss") + " : "+ context.Request.Url);
 			var request = context.Request;
 			var path = request.Url.LocalPath;
 			var pathSegments = path.Split(new []{"/"}, StringSplitOptions.RemoveEmptyEntries);

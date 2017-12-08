@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DataWarehouse.ActionResult" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAQAAA=</HashCode>
+      <FileName>ActionResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.HtmlPageResult" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>ActionResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.ObjectResult" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>ActionResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.SuccessResult" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAQAAA=</HashCode>
+      <FileName>ActionResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.ErrorResult" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAIAAAAAAAQAAA=</HashCode>
+      <FileName>ActionResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.MethodInvoker" Collapsed="true">
+    <Position X="17" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAEAAAAAAAAAAAAgAAAAABA=</HashCode>
+      <FileName>MethodInvoker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Program" Collapsed="true">
+    <Position X="13.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.RequestHandler" Collapsed="true">
+    <Position X="15.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>RequestHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.WebListener" Collapsed="true">
+    <Position X="13.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAIAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>WebListener.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Annotations.MethodType" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Annotations\MethodType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Controllers.AuthorizeController" Collapsed="true">
+    <Position X="9.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAABAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Controllers\AuthorizeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Controllers.Controller" Collapsed="true">
+    <Position X="5.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\Controller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Controllers.HomeController" Collapsed="true">
+    <Position X="5.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Controllers.MyTripsController" Collapsed="true">
+    <Position X="11.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAEAAAAAAAAAAABAAAgAAAAQAAAA=</HashCode>
+      <FileName>Controllers\MyTripsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Formatters.Formatter" Collapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAACAACAAAAA=</HashCode>
+      <FileName>Formatters\Formatter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Formatters.FormatterFactory" Collapsed="true">
+    <Position X="13.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Formatters\FormatterFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Formatters.JsonFormatter" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Formatters\JsonFormatter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Formatters.XmlFormatter" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Formatters\XmlFormatter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Formatters.YamlFormatter" Collapsed="true">
+    <Position X="0.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Formatters\YamlFormatter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Migrations.Configuration" Collapsed="true">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Migrations\Configuration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Models.City" Collapsed="true">
+    <Position X="15.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\City.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Models.DatabaseContext" Collapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAACAAAAAACAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Models.Pagination" Collapsed="true">
+    <Position X="1.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Pagination.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Models.SearchTrip" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAIAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\SearchTrip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Models.SearchTripResult" Collapsed="true">
+    <Position X="17" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\SearchTripResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Models.SearchUserTrips" Collapsed="true">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\SearchUserTrips.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Models.Trip" Collapsed="true">
+    <Position X="10" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgDAAAACwAIAAAAEAAAAAAgIAAAAgQAACAAAAAAAAA=</HashCode>
+      <FileName>Models\Trip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataWarehouse.Models.User" Collapsed="true">
+    <Position X="11.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAAAAAAAAAAAAAAAAQCAAAQAAAAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -11,7 +11,11 @@ namespace DataWarehouse
 	{
 		static void Main(string[] args)
 		{
-			var listener = new WebListener(11000, "localhost");
+			Console.WriteLine("Port: ");
+			var port = int.Parse(Console.ReadLine());
+			Console.WriteLine("Ip: ");
+			var ip = Console.ReadLine();
+			var listener = new WebListener(port, ip);
 			Task.Run(() => listener.Listen());
 			//using (var db = new DatabaseContext())
 			//{
