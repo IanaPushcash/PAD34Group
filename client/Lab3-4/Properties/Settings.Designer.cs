@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace client_for_pad3.Properties
+namespace Lab3_4.Properties
 {
 
 

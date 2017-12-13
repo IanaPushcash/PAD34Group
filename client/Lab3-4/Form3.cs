@@ -8,23 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace client_for_pad3
+namespace Lab3_4
 {
-    public partial class Reg : Form
+    public partial class Form3 : Form
     {
-        public Reg()
+        public Form3()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+            Form1 f1 = new Form1();
+            this.Hide();
+            f1.ShowDialog();
         }
     }
 }
