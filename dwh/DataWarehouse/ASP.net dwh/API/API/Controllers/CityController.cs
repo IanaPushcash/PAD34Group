@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -13,11 +13,11 @@ namespace API.Controllers
 	{
 		// GET api/<controller>
 		[Queryable]
-		public IQueryable<City> Get()
+		public IEnumerable<City> Get()
 		{
 			using (var db = new DatabaseContext())
 			{
-				return db.Cities;
+				return db.Cities.ToList();
 			}
 		}
 
@@ -36,6 +36,7 @@ namespace API.Controllers
 			using (var db = new DatabaseContext())
 			{
 				db.Cities.Add(value);
+				db.SaveChanges();
 			}
 		}
 
@@ -44,14 +45,27 @@ namespace API.Controllers
 		{
 			using (var db = new DatabaseContext())
 			{
-				db.Cities.Add(value);
+				var updCity = db.Cities.FirstOrDefault(c => c.Id == id);
+				if (updCity != null)
+				{
+					updCity.CityName = value.CityName;
+					db.SaveChanges();
+				}
 			}
 		}
 
 		// DELETE api/<controller>/5
 		public void Delete(int id)
 		{
-
+			using (var db = new DatabaseContext())
+			{
+				var rmvCity = db.Cities.FirstOrDefault(c => c.Id == id);
+				if (rmvCity != null)
+				{
+					db.Cities.Remove(rmvCity);
+					db.SaveChanges();
+				}
+			}
 		}
 	}
 }
