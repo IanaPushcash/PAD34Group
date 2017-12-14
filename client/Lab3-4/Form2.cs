@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataWarehouse.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +23,23 @@ namespace Lab3_4
             Form1 f1 = new Form1();
             this.Hide();
             f1.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ApiConnector.CurrentUser = null;
+            var userForLogin = new User()
+            {
+                Login = textBox1.Text,
+                Password = textBox2.Text
+            };
+            User user = Task.Run(() => ApiConnector.Login(userForLogin)).Result;
+            if (user.Id == 0) MessageBox.Show("Логин или пароль не верен!", "Ошибка");
+            else
+            {
+                ApiConnector.CurrentUser = user;
+                this.Close();
+            }
         }
     }
 }

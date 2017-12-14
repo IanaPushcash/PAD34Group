@@ -14,30 +14,23 @@ namespace Lab3_4
 {
     public partial class Form1 : Form
      {
-        public static string APP_PATH = "http://localhost:55122";
-
+        private List<City> cityList { get; set; }
         private bool CalendarStatus = false;
         public Form1()
         {
             InitializeComponent();
-            cityList = Task.Run(GetCities).Result;
+            cityList = Task.Run(ApiConnector.GetCities).Result;
+            var cityList2 = new List<City>(cityList);
             comboBox1.DataSource = cityList;
             comboBox1.ValueMember = "Id";
             comboBox1.DisplayMember = "CityName";
                    
-            comboBox2.DataSource = cityList;
+            comboBox2.DataSource = cityList2;
             comboBox2.ValueMember = "Id";
             comboBox2.DisplayMember = "CityName";
         }
-        private async Task<List<City>> GetCities()
-        {
-            using (var client = new HttpClient())
-            {
-                var response = client.GetAsync(APP_PATH + "/api/City").Result;
-                return await response.Content.ReadAsAsync<List<City>>();
-            }
-        }
-        private List<City> cityList { get; set; }
+        
+       
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (CalendarStatus == false)
@@ -60,15 +53,17 @@ namespace Lab3_4
         private void button1_Click(object sender, EventArgs e)
         {
             Form2 f2 = new Form2();
-            this.Hide();
+            //this.Hide();
             f2.ShowDialog();
+            if (ApiConnector.CurrentUser.Login != null) this.Name = this.Name + " - " + ApiConnector.CurrentUser.Login;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Form3 f3 = new Form3();
-            this.Hide();
+            //this.Hide();
             f3.ShowDialog();
+            if (ApiConnector.CurrentUser.Login != null) this.Name = this.Name + " - " + ApiConnector.CurrentUser.Login;
         }
 
         private void label11_Click(object sender, EventArgs e)
@@ -78,8 +73,8 @@ namespace Lab3_4
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            comboBox1.Items.Add(cityList);
-            comboBox2.Items.Add(cityList);
+            //comboBox1.Items.Add(cityList);
+            //comboBox2.Items.Add(cityList);
 
         }
 
@@ -93,5 +88,17 @@ namespace Lab3_4
 
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var searchTrip = new SearchTrip()
+            {
+                IdCityFrom = ((City)comboBox1.SelectedItem).Id,
+                IdCityTo = ((City)comboBox1.SelectedItem).Id,
+                TripDate = monthCalendar1.SelectionStart.Date
+            };
+
+            List<Trip> tripList = Task.Run(()=>ApiConnector.SearchTrips(searchTrip)).Result;
+
+        }
     }
 }
