@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DataWarehouse.Models
+{
+	abstract class Pagination
+	{
+		public int PageNumber { get; set; }
+		public int RecPerPage { get; set; }
+	}
+}
