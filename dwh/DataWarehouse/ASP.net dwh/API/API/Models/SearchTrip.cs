@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataWarehouse.Models
 {
-	class SearchTrip:Pagination
+	public class SearchTrip
 	{
 		public long IdCityFrom { get; set; }
 		public long IdCityTo { get; set; }

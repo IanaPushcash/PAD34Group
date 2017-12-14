@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataWarehouse.Models
 {
-	class SearchUserTrips:Pagination
+	public class SearchUserTrips
 	{
 		public long IdUser { get; set; }
 	}

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataWarehouse.Models
 {
-	class SearchTripResult
+	public class SearchTripResult
 	{
 		public int CountTrips { get; set; }
 		public List<Trip> Trips { get; set; }

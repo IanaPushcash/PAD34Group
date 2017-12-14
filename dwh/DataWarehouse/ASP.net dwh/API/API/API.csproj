@@ -138,15 +138,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CityController.cs" />
-    <Compile Include="Controllers\ValuesController2.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\SearchActualUserTripsController.cs" />
+    <Compile Include="Controllers\SearchTripController.cs" />
+    <Compile Include="Controllers\SearchUserTripsController.cs" />
+    <Compile Include="Controllers\TripAllController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
-    <Compile Include="Models\Pagination.cs" />
     <Compile Include="Models\SearchTrip.cs" />
     <Compile Include="Models\SearchTripResult.cs" />
     <Compile Include="Models\SearchUserTrips.cs" />
