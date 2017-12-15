@@ -1,0 +1,12 @@
+E:\Univer\labor\4curs\PAD\3-4\NewGUI\NewGUI\bin\Debug\NewGUI.exe.config
+E:\Univer\labor\4curs\PAD\3-4\NewGUI\NewGUI\bin\Debug\NewGUI.exe
+E:\Univer\labor\4curs\PAD\3-4\NewGUI\NewGUI\bin\Debug\NewGUI.pdb
+E:\Univer\labor\4curs\PAD\3-4\NewGUI\NewGUI\bin\Debug\Bunifu_UI_v1.5.3.dll
+E:\Univer\labor\4curs\PAD\3-4\NewGUI\NewGUI\obj\Debug\NewGUI.csprojResolveAssemblyReference.cache
+E:\Univer\labor\4curs\PAD\3-4\NewGUI\NewGUI\obj\Debug\NewGUI.Form1.resources
+E:\Univer\labor\4curs\PAD\3-4\NewGUI\NewGUI\obj\Debug\NewGUI.Properties.Resources.resources
+E:\Univer\labor\4curs\PAD\3-4\NewGUI\NewGUI\obj\Debug\NewGUI.csproj.GenerateResource.Cache
+E:\Univer\labor\4curs\PAD\3-4\NewGUI\NewGUI\obj\Debug\NewGUI.exe
+E:\Univer\labor\4curs\PAD\3-4\NewGUI\NewGUI\obj\Debug\NewGUI.pdb
+E:\Univer\labor\4curs\PAD\3-4\NewGUI\NewGUI\obj\Debug\NewGUI.Login.resources
+E:\Univer\labor\4curs\PAD\3-4\NewGUI\NewGUI\obj\Debug\NewGUI.Signin.resources
