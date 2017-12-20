@@ -33,7 +33,7 @@ namespace API.Controllers
 		}
 
 		// POST api/<controller>
-		public void Post([FromBody]User value)
+		public User Post([FromBody]User value)
 		{
 			using (var db = new DatabaseContext())
 			{
@@ -42,6 +42,7 @@ namespace API.Controllers
 				db.Users.Add(value);
 				db.SaveChanges();
 			}
+			return value;
 		}
 
 		// PUT api/<controller>/5

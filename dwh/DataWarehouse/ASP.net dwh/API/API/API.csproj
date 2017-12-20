@@ -134,7 +134,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -151,7 +153,6 @@
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\SearchTrip.cs" />
-    <Compile Include="Models\SearchTripResult.cs" />
     <Compile Include="Models\SearchUserTrips.cs" />
     <Compile Include="Models\Trip.cs" />
     <Compile Include="Models\User.cs" />

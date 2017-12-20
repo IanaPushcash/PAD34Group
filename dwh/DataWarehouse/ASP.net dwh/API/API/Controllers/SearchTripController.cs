@@ -16,7 +16,7 @@ namespace API.Controllers
 		{
 			using (var db = new DatabaseContext())
 			{
-				return (from t in db.Trips
+				var res =  (from t in db.Trips
 					where (searchTrip.IdCityFrom == null || t.IdCityFrom == searchTrip.IdCityFrom) &&
 					      (searchTrip.IdCityTo == null || t.IdCityTo == searchTrip.IdCityTo) &&
 					      //  (searchTrip.TripDate != null
@@ -25,6 +25,15 @@ namespace API.Controllers
 					      t.IsActive
 					orderby t.StartTime
 					select t).ToList();
+				for (int i = 0; i < res.Count; i++)
+				{
+					
+					var cFrom = db.Cities.First(c => c.Id == res[i].IdCityFrom);
+					var cTo = db.Cities.First(c => c.Id == res[i].IdCityTo);
+					res[i].CityFrom = cFrom;
+					res[i].CityTo = cTo;
+				}
+				return res;
 			}
 		}
 
