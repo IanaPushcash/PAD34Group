@@ -54,12 +54,12 @@ namespace API.Controllers
 				{
 					if (value.CityFrom != null) updTrip.CityFrom = value.CityFrom;
 					if (value.CityTo != null) updTrip.CityTo = value.CityTo;
-					if (value.IdUser != null) updTrip.IdUser = value.IdUser;
-					if (value.Price != null) updTrip.Price = value.Price;
+					updTrip.IdUser = value.IdUser;
+					updTrip.Price = value.Price;
 					if (value.FromPlace != null) updTrip.FromPlace = value.FromPlace;
-					if (value.StartTime != null) updTrip.StartTime = value.StartTime;
-					if (value.MinutesToDest != null) updTrip.MinutesToDest = value.MinutesToDest;
-					if (value.IsActive != null) updTrip.IsActive = value.IsActive;
+					updTrip.StartTime = value.StartTime;
+					updTrip.MinutesToDest = value.MinutesToDest;
+					updTrip.IsActive = value.IsActive;
 					db.SaveChanges();
 				}
 			}
@@ -73,8 +73,7 @@ namespace API.Controllers
 				var rmvTrip = db.Trips.FirstOrDefault(c => c.Id == id);
 				if (rmvTrip != null)
 				{
-					var trip = db.Trips.First(t => t.Id == id);
-					trip.IsActive = false;
+					db.Trips.Remove(rmvTrip);
 					db.SaveChanges();
 				}
 			}

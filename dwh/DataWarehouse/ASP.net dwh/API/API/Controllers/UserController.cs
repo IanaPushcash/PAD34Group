@@ -55,7 +55,8 @@ namespace API.Controllers
 				{
 					if (value.Email != null) updUser.Email = value.Email;
 					if (value.Login != null) updUser.Login = value.Login;
-					if (value.Password != null) updUser.Password = CalculateMD5Hash(value.Password + updUser.Created.ToString("yy-MM-dd"));
+					if (value.Password != null) updUser.Password = 
+							CalculateMD5Hash(value.Password + updUser.Created.ToString("yy-MM-dd"));
 					db.SaveChanges();
 				}
 			}
