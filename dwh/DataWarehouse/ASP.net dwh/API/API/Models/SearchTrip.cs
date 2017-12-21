@@ -8,8 +8,35 @@ namespace DataWarehouse.Models
 {
 	public class SearchTrip
 	{
-		public long IdCityFrom { get; set; }
-		public long IdCityTo { get; set; }
+		private long idCityFrom;
+		private long idCityTo;
+
+		public long IdCityFrom
+		{
+			get
+			{
+				return idCityFrom;
+			}
+			set
+			{
+				idCityFrom = value;
+				hrefCityFrom = "/api/city/" + value;
+			}
+		}
+
+		public long IdCityTo {
+			get
+			{
+				return idCityTo;
+			}
+			set
+			{
+				idCityTo = value;
+				hrefCityTo = "/api/city/" + value;
+			}
+		}
 		public DateTime TripDate { get; set; }
+		public string hrefCityFrom { get; set; }
+		public string hrefCityTo { get; set; }
 	}
 }

@@ -30,7 +30,7 @@ namespace API.Controllers
 		}
 
 		// POST api/<controller>
-		public void Post([FromBody]Trip value)
+		public Trip Post([FromBody]Trip value)
 		{
 			value.IsActive = true;
 			value.Created = DateTime.Now;
@@ -39,6 +39,9 @@ namespace API.Controllers
 				db.Trips.Add(value);
 				db.SaveChanges();
 			}
+			value.IdCityTo = value.IdCityTo;
+			value.IdCityFrom = value.IdCityFrom;
+			return value;
 		}
 
 		// PUT api/<controller>/5

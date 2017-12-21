@@ -12,11 +12,11 @@ namespace API.Controllers
 	{
 		// GET api/<controller>/<iduser>
 		[Queryable]
-		public IEnumerable<Trip> Get(int idUser)
+		public IEnumerable<Trip> Get(int id)
 		{
 			using (var db = new DatabaseContext())
 			{
-				return db.Trips.Where(t=> t.IdUser == idUser).ToList();
+				return db.Trips.Where(t=> t.IdUser == id).ToList();
 			}
 		}
 

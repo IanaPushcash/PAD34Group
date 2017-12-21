@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Net.Http.Formatting;
+using Amido.Net.Http.Formatting.YamlMediaTypeFormatter;
 
 namespace API
 {
@@ -19,6 +21,7 @@ namespace API
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-        }
+	        config.Formatters.Add(new YamlMediaTypeFormatter());
+		}
     }
 }

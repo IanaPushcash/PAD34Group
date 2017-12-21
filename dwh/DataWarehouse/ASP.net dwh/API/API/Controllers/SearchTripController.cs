@@ -17,22 +17,24 @@ namespace API.Controllers
 			using (var db = new DatabaseContext())
 			{
 				var res =  (from t in db.Trips
-					where (searchTrip.IdCityFrom == null || t.IdCityFrom == searchTrip.IdCityFrom) &&
-					      (searchTrip.IdCityTo == null || t.IdCityTo == searchTrip.IdCityTo) &&
-					      //  (searchTrip.TripDate != null
-					      //? t.StartTime > searchTrip.TripDate.Date.AddDays(-1) && t.StartTime < searchTrip.TripDate.Date.AddDays(1)
-					      //: t.StartTime > DateTime.Now) &&
+					where (t.IdCityFrom == searchTrip.IdCityFrom) &&
+					      (t.IdCityTo == searchTrip.IdCityTo) &&
+					      
 					      t.IsActive
 					orderby t.StartTime
 					select t).ToList();
-				for (int i = 0; i < res.Count; i++)
-				{
-					
-					var cFrom = db.Cities.First(c => c.Id == res[i].IdCityFrom);
-					var cTo = db.Cities.First(c => c.Id == res[i].IdCityTo);
-					res[i].CityFrom = cFrom;
-					res[i].CityTo = cTo;
-				}
+				if (searchTrip.TripDate.Year != 1)
+					res = res.Where(r => r.StartTime.Date == searchTrip.TripDate).ToList();
+				//foreach (Trip t in res)
+				//{
+				//	//var r = t;
+				//	//var cFrom = db.Cities.First(c => c.Id == r.IdCityFrom);
+				//	//var cTo = db.Cities.First(c => r.IdCityTo == c.Id);
+				//	//t.CityFrom = new City() { CityName = cFrom.CityName, Id = cFrom.Id };
+				//	//t.CityTo = new City() { CityName = cTo.CityName, Id = cTo.Id };
+				//	t.CityFrom = db.Cities.First(c => c.Id == t.IdCityFrom);
+				//	t.CityTo = db.Cities.First(c => c.Id == t.IdCityTo);
+				//}
 				return res;
 			}
 		}
